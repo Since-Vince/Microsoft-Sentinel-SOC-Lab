@@ -1,0 +1,12 @@
+// Microsoft Sentinel scheduled analytics query.
+// Lab configuration: evaluate approximately every 5 minutes;
+// trigger when >=5 failed logons occur within a 15-minute window.
+SecurityEvent
+| where TimeGenerated >= ago(15m)
+| where Computer =~ "SOC-SERVER2022"
+| where EventID == 4625
+| summarize FailedAttempts = count(),
+            TimeGenerated = max(TimeGenerated),
+            FirstSeen = min(TimeGenerated)
+    by Computer, TargetAccount
+| where FailedAttempts >= 5
