@@ -1,0 +1,5 @@
+// Summary of Windows Security events collected in the lab.
+SecurityEvent
+| where TimeGenerated > ago(24h)
+| summarize EventCount = count() by Computer, EventID
+| order by EventCount desc
