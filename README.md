@@ -10,6 +10,30 @@ I built a hands-on SOC lab to practice collecting Windows security telemetry, in
 
 This is a **personal, authorized test environment**. The failed login activity described here was intentionally generated against a disposable lab account; it was **not a real-world compromise**.
 
+## Project highlights — actual lab evidence
+
+The following screenshots are from my own lab, not sample Azure dashboards. They document the cloud connection, collected security events, the scheduled detection rule, and a tested incident.
+
+<table>
+<tr>
+<td width="50%"><strong>1. Azure Arc-connected Windows Server</strong><br/><img src="screenshots/01-Azure-Arc-Connected.png" alt="Windows Server connected in Azure Arc" width="100%"/></td>
+<td width="50%"><strong>2. Windows Security Events in Log Analytics</strong><br/><img src="screenshots/02-Windows-Security-Events.png" alt="KQL results showing collected Windows Security events" width="100%"/></td>
+</tr>
+<tr>
+<td width="50%"><strong>3. Scheduled Sentinel detection rule</strong><br/><img src="screenshots/04-Analytics-Detection-Rule.png" alt="Microsoft Sentinel multiple failed logins analytics rule" width="100%"/></td>
+<td width="50%"><strong>4. Simulated incident investigation</strong><br/><img src="screenshots/05-SOC-Incident-Closed.png" alt="Sentinel incident closed after an authorized simulation" width="100%"/></td>
+</tr>
+</table>
+
+**Additional evidence:** [Detailed failed-login KQL investigation](screenshots/03-Failed-Login-Investigation.png) · [Account and host entity mapping](screenshots/06-Entity-Mapping.png)
+
+## Skills demonstrated
+
+**Cloud monitoring:** Azure Arc, Azure Monitor Agent, Data Collection Rules, Log Analytics  
+**SOC operations:** Microsoft Sentinel, incident triage, benign-positive classification  
+**Detection engineering:** KQL, scheduled analytics rules, thresholds, alert review  
+**Windows security:** Security Event IDs, authentication failures, logon investigations
+
 ## Architecture
 
 ```text
