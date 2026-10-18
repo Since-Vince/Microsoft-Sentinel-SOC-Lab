@@ -22,7 +22,7 @@ See [the rule query](../kql/multiple-failed-logins-detection.kql).
 
 ## Activity and evidence
 
-I generated controlled incorrect-password attempts against a disposable local account, `SOC-SERVER2022\\soc-test`. Windows recorded failed sign-ins with Event 4625. Investigation of the lab events showed interactive logon type **2**, the loopback address **`::1`**, and related authentication status information consistent with an incorrect password; event 4776 included **`0xC000006A`**.
+I generated controlled incorrect-password attempts against a disposable local account, `SOC-SERVER2022\soc-test`. Windows recorded failed sign-ins with Event 4625. Investigation of the lab events showed interactive logon type **2**, the loopback address **`::1`**, and related authentication status information consistent with an incorrect password; event 4776 included **`0xC000006A`**.
 
 The 15-minute threshold was reached during testing, and Sentinel created incidents. Some repeated test executions produced multiple incidents because the rule was scheduled to run repeatedly against overlapping time windows.
 
