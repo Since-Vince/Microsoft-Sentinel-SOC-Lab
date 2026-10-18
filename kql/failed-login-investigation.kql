@@ -1,0 +1,7 @@
+// Investigate controlled failed logons against a disposable test account.
+SecurityEvent
+| where TimeGenerated > ago(24h)
+| where EventID == 4625
+| where TargetAccount has "soc-test"
+| project TimeGenerated, Computer, EventID, TargetAccount, LogonType, IpAddress, Activity
+| order by TimeGenerated desc
